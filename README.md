@@ -11,3 +11,6 @@ Application made with Android Studio
 
 ### 3. 메인 화면
 ![mainimage](https://github.com/swallow8801/TeamProject_CapstoneDesign/assets/150134490/067585c9-4aed-4d1c-aa4b-1aa91202445f)
+
+### 4. 영상
+[![Video Label](http://img.youtube.com/vi/8qndCRuWZKI/0.jpg)](https://youtu.be/8qndCRuWZKI)

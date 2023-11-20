@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TeamProjectApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".introsongintro"
+            android:exported="false" />
+        <activity
+            android:name=".introsong"
+            android:exported="false" />
+        <activity
+            android:name=".KingGameReal"
+            android:exported="false" />
+        <activity
+            android:name=".KingGame"
+            android:exported="false" />
+        <activity
+            android:name=".emojigame"
+            android:exported="false" />
+        <activity
+            android:name=".thirtyone"
+            android:exported="false" />
+        <activity
+            android:name=".Roulette"
+            android:exported="false" />
+        <activity
+            android:name=".touchgame"
+            android:exported="false" />
+        <activity
+            android:name=".bottlespiner"
+            android:exported="false" />
+        <activity
+            android:name=".relayspeakingfive"
+            android:exported="false" />
+        <activity
+            android:name=".relayspeakingfour"
+            android:exported="false" />
+        <activity
+            android:name=".relayspeaking"
+            android:exported="false" />
+        <activity
+            android:name=".chosungjob"
+            android:exported="false" />
+        <activity
+            android:name=".chosungdrama"
+            android:exported="false" />
+        <activity
+            android:name=".chosungsong"
+            android:exported="false" />
+        <activity
+            android:name=".chosungmovie"
+            android:exported="false" />
+        <activity
+            android:name=".chosungmain"
+            android:exported="false" />
+        <activity
+            android:name=".objectgame"
+            android:exported="false" />
+        <activity
+            android:name=".personimagegame"
+            android:exported="false" />
+        <activity
+            android:name=".liargame"
+            android:exported="false" />
+        <activity
+            android:name=".liargameintro"
+            android:exported="false" />
+        <activity
+            android:name=".bombgame"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenu_Recommend"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

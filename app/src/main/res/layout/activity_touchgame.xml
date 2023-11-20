@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    tools:context=".touchgame">
+
+
+    <ImageView
+        android:id="@+id/backbutton_1"
+        android:layout_width="88dp"
+        android:layout_height="59dp"
+        android:src="@drawable/backbuttonimage"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="00:00"
+        android:textColor="#FF5722"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/bmjua_ttf"
+        android:text="0"
+        android:textColor="#FF5722"
+        android:textSize="120sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+
+    <ImageView
+        android:id="@+id/handd"
+        android:layout_width="301dp"
+        android:layout_height="329dp"
+        android:src="@drawable/hand"
+        app:layout_constraintBottom_toTopOf="@+id/repeatbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onlyscore" />
+
+    <TextView
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bmjua_ttf"
+        android:text="START"
+        android:textColor="#FF3020"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/handd"
+        app:layout_constraintEnd_toEndOf="@+id/handd"
+        app:layout_constraintStart_toStartOf="@+id/handd"
+        app:layout_constraintTop_toTopOf="@+id/handd" />
+
+    <TextView
+        android:id="@+id/onlyscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bmjua_ttf"
+        android:text="SCORE"
+        android:textColor="#FF5722"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTextView" />
+
+    <ImageView
+        android:id="@+id/repeatbutton"
+        android:layout_width="294dp"
+        android:layout_height="107dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/repeatbutton" />
+
+    <ImageView
+        android:id="@+id/howtoplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/howtoplay8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

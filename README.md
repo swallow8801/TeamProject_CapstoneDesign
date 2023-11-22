@@ -9,9 +9,6 @@ Application made with Android Studio
 
 ### 2. 어플 소개 : 술자리나 MT 등 하나의 폰으로 즐길 수 있는 여러 가지 술 게임 문화를 어플로 구현
 
-### 3. 메인 화면
-![mainimage](https://github.com/swallow8801/TeamProject_CapstoneDesign/assets/150134490/067585c9-4aed-4d1c-aa4b-1aa91202445f)
-
-### 4. 게임 소개
+### 3. 게임 소개
 1. 폭탄게임
 2. 라이어게임

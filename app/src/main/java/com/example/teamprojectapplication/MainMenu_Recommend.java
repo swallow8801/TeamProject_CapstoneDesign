@@ -37,6 +37,7 @@ public class MainMenu_Recommend extends AppCompatActivity {
         ImageView imageView12 = findViewById(R.id.imageView12);
         ImageView imageView13 = findViewById(R.id.imageView13);
         ImageView imageView14 = findViewById(R.id.imageView14);
+        ImageView imageView15 = findViewById(R.id.imageView15);
 
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +127,14 @@ public class MainMenu_Recommend extends AppCompatActivity {
             }
         });
 
+        imageView12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu_Recommend.this, stopwatch.class);
+                startActivity(intent);
+            }
+        });
+
         imageView13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,6 +147,14 @@ public class MainMenu_Recommend extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainMenu_Recommend.this, introsongintro.class);
+                startActivity(intent);
+            }
+        });
+
+        imageView15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu_Recommend.this, fingerchoice.class);
                 startActivity(intent);
             }
         });

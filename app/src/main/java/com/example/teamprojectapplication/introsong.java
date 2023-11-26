@@ -6,54 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.media.MediaPlayer;
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class introsong extends AppCompatActivity {
-    private Object[][] song_data_01 = {
-            {R.raw.songstart001, R.raw.song001, "내가 제일 잘나가 - 2NE1"},
-            {R.raw.songstart002, R.raw.song002, "Fantastic Baby - 빅뱅"},
-            {R.raw.songstart003, R.raw.song003, "나혼자 - 씨쓰타"},
-            {R.raw.songstart004, R.raw.song004, "Roly Poly - 티아라"},
-            {R.raw.songstart005, R.raw.song005, "Offically Missing You - 긱스"},
-            {R.raw.songstart006, R.raw.song006, "거북이 - 다비치"},
-            {R.raw.songstart007, R.raw.song007, "TV를 껐네 - 리쌍"},
-            {R.raw.songstart008, R.raw.song008, "그땐 그땐 그땐 - 슈프림팀"},
-            {R.raw.songstart009, R.raw.song009, "너랑나 - 아이유"},
-            {R.raw.songstart010, R.raw.song010, "잔소리 - 아이유,임슬옹"},
-            {R.raw.songstart011, R.raw.song011, "삐딱하게 - GD"},
-            {R.raw.songstart012, R.raw.song012, "으르렁 - EXO"},
-            {R.raw.songstart013, R.raw.song013, "뚜두뚜두 - 블랙핑크"},
-            {R.raw.songstart014, R.raw.song014, "DNA - BTS"},
-            {R.raw.songstart015, R.raw.song015, "바람기억 - 나얼"},
-            {R.raw.songstart016, R.raw.song016, "너의 모든 순간 - 성시경"},
-            {R.raw.songstart017, R.raw.song017, "선물 - 멜로망스"},
-            {R.raw.songstart018, R.raw.song018, "야생화 - 박효신"},
-            {R.raw.songstart019, R.raw.song019, "우주를 줄게 - 볼빨간 사춘기"},
-            {R.raw.songstart020, R.raw.song020, "좋니 - 윤종신"}
-    };
-
-    private Object[][] song_data_02 = {
-            {R.raw.songstart101, R.raw.song101, "Adele - Rolling in the Deep"},
-            {R.raw.songstart102, R.raw.song102, "Anne Marie - 2002"},
-            {R.raw.songstart103, R.raw.song103, "Charlie Puth - Dangerously"},
-            {R.raw.songstart104, R.raw.song104, "Ed Sheeran - Shape Of You"},
-            {R.raw.songstart105, R.raw.song105, "Justin Bieber - Peaches "},
-            {R.raw.songstart106, R.raw.song106, "Maroon 5 - Memories "},
-            {R.raw.songstart107, R.raw.song107, "Sam Smith - I'm Not The Only One"},
-            {R.raw.songstart108, R.raw.song108, "The Kid LAROI, Justin Bieber - Stay"},
-            {R.raw.songstart109, R.raw.song109, "Tones and I - Dance Monkey "},
-            {R.raw.songstart110, R.raw.song110, "Olivia Rodrigo - vampire"}
-    };
-
     private Object[][] song_data;
     private int currentIndex = 0;
     private MediaPlayer mediaPlayer;
@@ -84,19 +52,52 @@ public class introsong extends AppCompatActivity {
 
         Intent intent = getIntent();
         String Topic = intent.getStringExtra("Topic");
-        switch (Topic){
-            case "2010년대":
-                song_data=song_data_01;
-                textView2.setText(Topic);
-                break;
-            case "팝송":
-                song_data=song_data_02;
-                textView2.setText(Topic);
-                break;
-            default:
-                song_data=song_data_01;
-                break;
+        String json = "";
+        try {
+            InputStream is = getAssets().open("jsons/introsong.json");
+            int fileSize = is.available();
+
+            byte[] buffer = new byte[fileSize];
+            is.read(buffer);
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+            JSONArray jsonArray = new JSONArray(json);
+
+
+            JSONArray filteredArray = new JSONArray();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+                if (Topic.equals(item.getString("topic"))) {
+                    filteredArray.put(item);
+                }
+            }
+
+            int length = filteredArray.length();
+
+            song_data = new Object[length][3];
+
+            for (int i = 0; i < length; i++) {
+                JSONObject jsonObject = filteredArray.getJSONObject(i);
+                String Jsontopic = jsonObject.getString("topic");
+                if (Jsontopic.equals(Topic)) {
+                    String startName = jsonObject.getString("start");
+                    int startResourceId = getResources().getIdentifier(startName, "raw", getPackageName());
+                    String songName = jsonObject.getString("song");
+                    int songResourceId = getResources().getIdentifier(songName, "raw", getPackageName());
+
+                    song_data[i][0] = startResourceId;
+                    song_data[i][1] = songResourceId;
+                    song_data[i][2] = jsonObject.getString("title");
+                }
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
 
         // 데이터 배열을 무작위로 섞기
         shuffleSongDataArray();
@@ -109,6 +110,7 @@ public class introsong extends AppCompatActivity {
         // 앱 시작 시 초기 데이터 설정
         textView.setText(String.valueOf(song_data[currentIndex][2]));
         textView.setVisibility(View.INVISIBLE);
+        textView2.setText(Topic);
 
         // 버튼1 클릭 시
         button1.setOnClickListener(new View.OnClickListener() {

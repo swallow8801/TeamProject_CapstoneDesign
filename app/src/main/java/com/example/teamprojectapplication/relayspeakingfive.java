@@ -24,7 +24,7 @@ public class relayspeakingfive extends AppCompatActivity {
             ,"사이□□","소녀□□","신사□□","아이□□","오토□□","장화□□","코카□□","고진□□","일자□□","금의□□","일석□□","다다□□","역지□□","우이□□","대기□□"
             ,"오합□□","권모□□","기승□□","설상□□","삼삼□□","삼삼□□","십중□□","도학□□","속전□□","동문□□","치즈□□","구사□□","일취□□","천재□□","유일□□"
             ,"작심□□","명명□□","신토□□","일심□□","마이□□","동가□□","시시□□"};
-    private List<String> remainingWords = new ArrayList<>();
+private List<String> remainingWords = new ArrayList<>();
     private Random random = new Random();
 
     @Override

@@ -170,6 +170,16 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/gameselect14" />
 
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onImageViewClick"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gameselect14" />
+
             <!-- 나머지 ImageView들도 유사하게 추가 -->
 
         </LinearLayout>

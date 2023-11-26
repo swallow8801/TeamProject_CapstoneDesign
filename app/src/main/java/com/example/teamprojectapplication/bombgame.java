@@ -94,7 +94,7 @@ public class bombgame extends AppCompatActivity {
     private void startTimer() {
         // 랜덤한 시간 설정 (10초 ~ 60초)
         Random random = new Random();
-        final long totalTimeInMillis = (random.nextInt(11) + 10) * 1000;
+        final long totalTimeInMillis = (random.nextInt(31) + 10) * 1000;
 
         countDownTimer = new CountDownTimer(totalTimeInMillis, 1000) {
             @Override

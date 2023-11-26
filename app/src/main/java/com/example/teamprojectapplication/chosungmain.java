@@ -68,7 +68,8 @@ public class chosungmain extends AppCompatActivity {
         movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(chosungmain.this, chosungmovie.class);
+                Intent intent = new Intent(chosungmain.this, chosunggame.class);
+                intent.putExtra("Topic","영화");
                 startActivity(intent);
             }
         });
@@ -76,7 +77,8 @@ public class chosungmain extends AppCompatActivity {
         songButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(chosungmain.this, chosungsong.class);
+                Intent intent = new Intent(chosungmain.this, chosunggame.class);
+                intent.putExtra("Topic","노래");
                 startActivity(intent);
             }
         });
@@ -84,7 +86,8 @@ public class chosungmain extends AppCompatActivity {
         drama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(chosungmain.this, chosungdrama.class);
+                Intent intent = new Intent(chosungmain.this, chosunggame.class);
+                intent.putExtra("Topic","드라마");
                 startActivity(intent);
             }
         });
@@ -92,7 +95,8 @@ public class chosungmain extends AppCompatActivity {
         jobButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(chosungmain.this, chosungjob.class);
+                Intent intent = new Intent(chosungmain.this, chosunggame.class);
+                intent.putExtra("Topic","직업");
                 startActivity(intent);
             }
         });

@@ -2,32 +2,23 @@ package com.example.teamprojectapplication;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;;
 
 import java.util.Random;
 
 public class emojigame extends AppCompatActivity {
 
     private ImageView imageView;
-    private int[] imageArray = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4,R.drawable.image5, R.drawable.image6,
-            R.drawable.image7,R.drawable.image8,R.drawable.image9,R.drawable.image10,R.drawable.image11,R.drawable.image12,R.drawable.image13,R.drawable.image14,
-            R.drawable.image15,R.drawable.image16,R.drawable.image17,
-            R.drawable.image18,R.drawable.image19,R.drawable.image20,R.drawable.image21,R.drawable.image22,R.drawable.image23,R.drawable.image24,R.drawable.image25,
-            R.drawable.image26,R.drawable.image27,R.drawable.image28,R.drawable.image29,R.drawable.image30,R.drawable.image31,R.drawable.image32,R.drawable.image33,};
-    private String[] imageDescriptions = {"EXID-위아래", "Kill This Love -블랙핑크", "거북이-빙고","눈코입-태양", "Lovesick Girls-블랙핑크","MIC Drop-BTS"
-            ,"백지영-사랑안해","빅뱅-봄여름가을겨울","빅뱅-뱅뱅뱅","빅뱅-판타스틱베이비","다비치-사랑과전쟁","세븐틴-손오공","여자친구-시간을달려서","싹스리-다시여기바닷가",
-            "씨엔블루-외톨이야","아이유-strawberry moon","아이유-좋은날","악동뮤지션-후라이의 꿈","먼데이 키즈-발자국","에스파-Savage","에이핑크-No No No","에이핑크-Mr chu","엑소-으르렁","2PM-우리집",
-            "에스파-도깨비 불","BTS-피땀눈물", "하이키-건물 사이에 피어난 장미","리쌍-헤어지지 못하는 여자\n떠나가지 못하는 남자","에일리-첫눈 처럼 \n너에게 가겠다","아이브-러브 다이브","적재-별보러갈래",
-            "아이유-잔소리","볼빨간사춘기-우주를 줄게"};
-
-    private String[] hints = {"힌트:가사,춤", "힌트:검정분홍", "힌트:한 줄 OO ", "힌트:sun","힌트:검정분홍","힌트:BTS"
-            ,"힌트:아재개그","힌트:4계절","힌트:총총총","힌트-빅뱅","힌트:다비치","힌트:마치 된 것 같아 000","힌트:여자친구","힌트:유재석","힌트:정용화","힌트:아이유",
-            "힌트:아이유","힌트:이찬혁","힌트:월요일","힌트:에스파","힌트:에이핑크","힌트:에이핑크","힌트:엑소","힌트:2PM","힌트:에스파","힌트:BTS","힌트:하이키","힌트:리쌍","힌트:에일리","힌트:아이브","힌트:적재"
-            ,"힌트:임슬옹","힌트:안지영"};
+    private int[] imageArray;
+    private String[] imageDescriptions;
+    private String[] hints;
     private ImageView checkButton;
     private ImageView nextButton;
     private ImageView hintButton;
@@ -52,6 +43,41 @@ public class emojigame extends AppCompatActivity {
 
         ImageView backbutton = findViewById(R.id.backbutton_1);
         ImageView howtoplay= findViewById(R.id.howtoplay);
+
+        String json = "";
+        try {
+            InputStream is = getAssets().open("jsons/emoji.json");
+            int fileSize = is.available();
+
+            byte[] buffer = new byte[fileSize];
+            is.read(buffer);
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+            JSONArray jsonArray = new JSONArray(json);
+            int length = jsonArray.length();
+
+            imageArray = new int[length];
+            imageDescriptions = new String[length];
+            hints = new String[length];
+
+            for (int i = 0; i < length; i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String imageName = jsonObject.getString("imageName");
+                int imageResourceId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+
+                imageArray[i] = imageResourceId;
+                imageDescriptions[i] = jsonObject.getString("description");
+                hints[i] = jsonObject.getString("hint");
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         howtoplay.setOnClickListener(new View.OnClickListener() {
             @Override

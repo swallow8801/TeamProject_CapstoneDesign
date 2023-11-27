@@ -29,3 +29,5 @@ Application made with Android Studio
 
 ### 4. 데이터 관리
 Json파일을 이용했습니다.
+
+### dhks

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".introsongintro">
+    tools:context=".introsongintro"
+    tools:ignore="MissingDefaultResource">
 
     <ImageView
         android:id="@+id/backbutton_1"
@@ -89,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua_ttf"
-        android:text="2010년대"
+        android:text="2020년대"
         android:textColor="#000000"
         android:textSize="40sp"
         android:visibility="invisible"
@@ -103,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua_ttf"
-        android:text="팝송"
+        android:text="2010년대"
         android:textColor="#000000"
         android:textSize="40sp"
         android:visibility="invisible"
@@ -117,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua_ttf"
-        android:text="개발중"
+        android:text="2000년대"
         android:textColor="#000000"
         android:textSize="40sp"
         android:visibility="invisible"
@@ -131,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bmjua_ttf"
-        android:text="개발중"
+        android:text="팝송"
         android:textColor="#000000"
         android:textSize="40sp"
         android:visibility="invisible"

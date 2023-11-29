@@ -1,9 +1,5 @@
 package com.example.teamprojectapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -24,22 +20,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
 public class fingerchoice extends AppCompatActivity {
 
-    private static final int DELAY_MILLIS = 5000; // 5초(밀리초)
+    private static final long LONG_PRESS_DURATION = 5000; // 5초(밀리초)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fingerchoice);
 
-
         ImageView backButton = findViewById(R.id.backbutton_1);
+        ImageView howtoplay = findViewById(R.id.howtoplay);
+        View touchView1 = findViewById(R.id.touchView);
         FrameLayout touchView2 = findViewById(R.id.touchView2);
         MultiTouchView multiTouchView = new MultiTouchView(this);
         touchView2.addView(multiTouchView);
 
+        howtoplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                howtoplay.setVisibility(View.INVISIBLE);
+                backButton.setVisibility(View.VISIBLE);
+                touchView1.setVisibility(View.VISIBLE);
+                touchView2.setVisibility(View.VISIBLE);
+            }
+        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,10 +53,11 @@ public class fingerchoice extends AppCompatActivity {
             }
         });
 
-        // 5초 뒤에 터치 중인 포인트 중 하나를 랜덤하게 선택하여 외부 원 생성
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+
+        // 한 번 터치한 시점에서 꾹(길게) 5초 동안 터치한 경우에만 외부 원 생성
+        multiTouchView.setOnLongPressListener(() -> {
             multiTouchView.addOuterCircle();
-        }, DELAY_MILLIS);
+        });
     }
 
     public class MultiTouchView extends View {
@@ -59,6 +65,13 @@ public class fingerchoice extends AppCompatActivity {
         private Map<Integer, Point> touchPoints;
         private Map<Integer, Paint> paintMap;
         private Map<Integer, OuterCircle> outerCircles;
+
+        private boolean isLongPress = false;
+        private float longPressX, longPressY;
+        private long longPressStartTime; // 꾹(길게) 터치를 시작한 시간을 저장하는 변수
+        private OnLongPressListener onLongPressListener;
+        private int activePointerId = MotionEvent.INVALID_POINTER_ID;
+        private boolean isTouchEnabled = true; // 터치 가능 여부를 나타내는 변수 추가
 
         public MultiTouchView(Context context) {
             super(context);
@@ -109,52 +122,124 @@ public class fingerchoice extends AppCompatActivity {
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
-            if (outerCircles.isEmpty()) { // 외부 원이 없을 때만 터치 이벤트 처리
+            if (isTouchEnabled) {
                 int action = event.getActionMasked();
 
                 switch (action) {
                     case MotionEvent.ACTION_DOWN:
+                        handleActionDown(event);
+                        break;
+
                     case MotionEvent.ACTION_POINTER_DOWN:
-                        int pointerIndex = event.getActionIndex();
-                        int pointerId = event.getPointerId(pointerIndex);
-                        float x = event.getX(pointerIndex);
-                        float y = event.getY(pointerIndex);
-
-                        Paint paint = new Paint();
-                        paint.setColor(generateRandomColor());
-                        paint.setAntiAlias(true);
-
-                        paintMap.put(pointerId, paint);
-                        touchPoints.put(pointerId, new Point(x, y));
-                        invalidate();  // 화면 갱신 요청
+                        handleActionPointerDown(event);
                         break;
 
                     case MotionEvent.ACTION_MOVE:
-                        for (int i = 0; i < event.getPointerCount(); i++) {
-                            int id = event.getPointerId(i);
-                            float moveX = event.getX(i);
-                            float moveY = event.getY(i);
-                            touchPoints.get(id).set(moveX, moveY);
-                        }
-                        invalidate();  // 화면 갱신 요청
+                        handleActionMove(event);
                         break;
 
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_POINTER_UP:
-                        int pointerIndexUp = event.getActionIndex();
-                        int pointerIdUp = event.getPointerId(pointerIndexUp);
-                        touchPoints.remove(pointerIdUp);
-                        paintMap.remove(pointerIdUp);
-                        invalidate();  // 화면 갱신 요청
+                        handleActionUp(event);
                         break;
                 }
 
                 return true;
             }
 
-            return false; // 외부 원이 있을 경우 터치 이벤트 무시
+            return false;
         }
-        // 랜덤으로 하나의 터치를 제거하는 메서드
+
+        private void handleActionDown(MotionEvent event) {
+            int pointerIndex = event.getActionIndex();
+            int pointerId = event.getPointerId(pointerIndex);
+
+            activePointerId = pointerId;
+
+            Paint paint = new Paint();
+            paint.setColor(generateRandomColor());
+            paint.setAntiAlias(true);
+
+            paintMap.put(pointerId, paint);
+            touchPoints.put(pointerId, new Point(event.getX(pointerIndex), event.getY(pointerIndex)));
+
+            invalidate();
+            startLongPressTimer(event.getX(pointerIndex), event.getY(pointerIndex));
+        }
+
+        private void handleActionPointerDown(MotionEvent event) {
+            int pointerIndex = event.getActionIndex();
+            int pointerId = event.getPointerId(pointerIndex);
+
+            Paint paint = new Paint();
+            paint.setColor(generateRandomColor());
+            paint.setAntiAlias(true);
+
+            paintMap.put(pointerId, paint);
+            touchPoints.put(pointerId, new Point(event.getX(pointerIndex), event.getY(pointerIndex)));
+
+            invalidate();
+        }
+
+        private void handleActionMove(MotionEvent event) {
+            for (int i = 0; i < event.getPointerCount(); i++) {
+                int id = event.getPointerId(i);
+                if (id == activePointerId) {
+                    float moveX = event.getX(i);
+                    float moveY = event.getY(i);
+                    touchPoints.get(id).set(moveX, moveY);
+                }
+            }
+            invalidate();
+        }
+
+        private void handleActionUp(MotionEvent event) {
+            int pointerIndexUp = event.getActionIndex();
+            int pointerIdUp = event.getPointerId(pointerIndexUp);
+            touchPoints.remove(pointerIdUp);
+            paintMap.remove(pointerIdUp);
+
+            if (pointerIdUp == activePointerId) {
+                stopLongPressTimer();
+                activePointerId = MotionEvent.INVALID_POINTER_ID;
+            }
+
+            invalidate();
+        }
+
+        private void startLongPressTimer(float x, float y) {
+            isLongPress = false;
+            longPressX = x;
+            longPressY = y;
+            longPressStartTime = System.currentTimeMillis(); // 꾹(길게) 터치 시작 시간 저장
+
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                if (isLongPress) {
+                    // 이미 외부 원이 생성된 경우 무시
+                    return;
+                }
+
+                // 꾹(길게) 터치한 시점에서 5초 동안 터치한 경우에만
+                // 꾹(길게) 터치한 시점에서 5초 동안 터치한 경우에만 콜백 호출
+                if (onLongPressListener != null && isLongPressForDuration()) {
+                    onLongPressListener.onLongPress();
+                }
+            }, LONG_PRESS_DURATION);
+        }
+
+        private void stopLongPressTimer() {
+            isLongPress = false;
+        }
+
+        private boolean isLongPressForDuration() {
+            long currentTime = System.currentTimeMillis();
+            return (currentTime - longPressStartTime) >= LONG_PRESS_DURATION;
+        }
+
+        public void setOnLongPressListener(OnLongPressListener listener) {
+            this.onLongPressListener = listener;
+        }
+
         public void addOuterCircle() {
             if (!touchPoints.isEmpty()) {
                 Object[] keys = touchPoints.keySet().toArray();
@@ -169,6 +254,10 @@ public class fingerchoice extends AppCompatActivity {
                 outerPaint.setStyle(Paint.Style.STROKE);
                 outerPaint.setStrokeWidth(20); // 외부 원의 두께 설정
                 outerCircles.put(pointerId, new OuterCircle(point.x, point.y, outerPaint));
+
+                // 외부 원이 생성
+                // 외부 원이 생성되면 터치 비활성화
+                isTouchEnabled = false;
 
                 invalidate(); // 화면 갱신 요청
             }
@@ -204,5 +293,9 @@ public class fingerchoice extends AppCompatActivity {
             this.radius = 150; // 외부 원의 반지름
             this.paint = paint;
         }
+    }
+
+    public interface OnLongPressListener {
+        void onLongPress();
     }
 }

@@ -25,7 +25,10 @@ Application made with Android Studio
 13. 이모지 게임
 14. 전주 듣고 노래 맞추기
 15. 랜덤 터치 게임
+<<<<<<< HEAD
 
 
 ### 4. 데이터 관리
 Json파일을 이용했습니다.
+=======
+>>>>>>> 41e40d9ce8ae8639abe95fce60174af29879eac0

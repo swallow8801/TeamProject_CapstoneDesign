@@ -8,10 +8,19 @@
 
 
     <ImageView
+        android:id="@+id/howtoplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/howtoplay15" />
+
+    <ImageView
         android:id="@+id/backbutton_1"
         android:layout_width="88dp"
         android:layout_height="59dp"
         android:src="@drawable/backbuttonimage"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <!-- 여러 사람이 터치하는 뷰 -->
@@ -20,6 +29,8 @@
         android:layout_width="416dp"
         android:layout_height="700dp"
         android:background="#FFFFFF"
+        android:visibility="invisible"
+        android:splitMotionEvents="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +41,8 @@
         android:layout_width="416dp"
         android:layout_height="700dp"
         android:background="@drawable/background"
+        android:splitMotionEvents="true"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

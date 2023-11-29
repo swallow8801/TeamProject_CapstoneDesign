@@ -69,7 +69,7 @@ public class introsongintro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(introsongintro.this, introsong.class);
-                intent.putExtra("Topic","2010년대");
+                intent.putExtra("Topic","2020년대");
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class introsongintro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(introsongintro.this, introsong.class);
-                intent.putExtra("Topic","팝송");
+                intent.putExtra("Topic","2010년대");
                 startActivity(intent);
             }
         });
@@ -87,6 +87,7 @@ public class introsongintro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(introsongintro.this, introsong.class);
+                intent.putExtra("Topic","팝송");
                 startActivity(intent);
             }
         });
@@ -95,6 +96,7 @@ public class introsongintro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(introsongintro.this, introsong.class);
+                intent.putExtra("Topic","2000년대");
                 startActivity(intent);
             }
         });

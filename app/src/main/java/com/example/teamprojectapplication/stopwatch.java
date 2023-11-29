@@ -295,7 +295,7 @@ public class stopwatch extends AppCompatActivity {
         }
 
         // 결과 텍스트뷰에 표시
-        totalTextView.setText("오차 :" + formattedRemainingTime + "초");
+        totalTextView.setText(formattedRemainingTime + "초");
     }
 
     private void updateView1() {

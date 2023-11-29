@@ -178,7 +178,7 @@
                 android:onClick="onImageViewClick"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/gameselect14" />
+                android:src="@drawable/gameselect15" />
 
             <!-- 나머지 ImageView들도 유사하게 추가 -->
 

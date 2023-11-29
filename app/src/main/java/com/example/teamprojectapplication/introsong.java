@@ -116,6 +116,7 @@ public class introsong extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textView.setVisibility(View.INVISIBLE);
                 textView20.setText("1초 재생중");
                 // 버튼을 클릭했을 때
                 textView20.setVisibility(View.VISIBLE);
@@ -137,6 +138,7 @@ public class introsong extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textView.setVisibility(View.INVISIBLE);
                 textView20.setText("3초 재생중");
                 // 버튼을 클릭했을 때
                 textView20.setVisibility(View.VISIBLE);

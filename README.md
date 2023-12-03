@@ -31,4 +31,5 @@ Application made with Android Studio
 Json파일을 이용했습니다.
 
 ### 5. 학술제 발표
+12.06 베타테스트
 12.13 발표

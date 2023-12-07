@@ -29,12 +29,12 @@
 ###### [8. 터치 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/touchgame.java)
 ###### [9. 벌칙 룰렛](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/Roulette.java)
 ###### [10. 베스킨라빈스31+](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/thrityone.java)
-###### [11. 왕게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/KingGameReal.java)
-###### [12. 스탑 워치](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/stopwatch.java)
-###### [13. 이모지 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/emojigame.java)
+###### [11. 왕게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/KingGameReal.java)
+###### [12. 스탑 워치](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/stopwatch.java)
+###### [13. 이모지 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/emojigame.java)
 ###### [14. 전주 듣고 노래 맞추기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/introsong.java)
-###### [15. 핑거초이스](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/fingerchoice.java)
-###### [16. 얼굴 인식 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/fingerchoice.java)
+###### [15. 핑거초이스](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/fingerchoice.java)
+###### [16. 얼굴 인식 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/fingerchoice.java)
 
 
 ### 5. 데이터 관리

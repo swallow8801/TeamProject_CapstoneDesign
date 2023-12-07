@@ -20,21 +20,21 @@
 
 ### 4. 게임 소개
 ###### [1. 폭탄게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/bombgame.java)
-###### [2. 라이어게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/liargame.java)
-###### [3. 인물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/personimagegame.java)
-###### [4. 사물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/objectgame.java)
-###### [5. 초성 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/chosunggame.java)
-###### [6. 이어말하기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/relayspeakingfour.java)
-###### [7. 병돌리기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/bottlespiner.java)
-###### [8. 터치 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/touchgame.java)
-###### [9. 벌칙 룰렛](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/Roulette.java)
-###### [10. 베스킨라빈스31+](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/thrityone.java)
-###### [11. 왕게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/KingGameReal.java)
-###### [12. 스탑 워치](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/stopwatch.java)
-###### [13. 이모지 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/emojigame.java)
-###### [14. 전주 듣고 노래 맞추기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/introsong.java)
-###### [15. 핑거초이스](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/fingerchoice.java)
-###### 16. 얼굴 인식 게임
+###### [2. 라이어게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/liargame.java)
+###### [3. 인물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/personimagegame.java)
+###### [4. 사물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/objectgame.java)
+###### [5. 초성 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/chosunggame.java)
+###### [6. 이어말하기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/relayspeakingfour.java)
+###### [7. 병돌리기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/bottlespiner.java)
+###### [8. 터치 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/touchgame.java)
+###### [9. 벌칙 룰렛](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/Roulette.java)
+###### [10. 베스킨라빈스31+](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/thrityone.java)
+###### [11. 왕게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/KingGameReal.java)
+###### [12. 스탑 워치](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/stopwatch.java)
+###### [13. 이모지 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/emojigame.java)
+###### [14. 전주 듣고 노래 맞추기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/introsong.java)
+###### [15. 핑거초이스](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/fingerchoice.java)
+###### [16. 얼굴 인식 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/master/java/com/example/teamprojectapplication/fingerchoice.java)
 
 
 ### 5. 데이터 관리

@@ -38,11 +38,23 @@
 
 
 ### 5. 데이터 관리
-Json 파싱을 통한 데이터 필터링 및 리소스 호출을 담당.
-###### [Introsong.Json 예시](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/assets/jsons/introsong.json)
+
+#### [Introsong.Json 예시](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/assets/jsons/introsong.json)
+```json
+[
+  {"topic": "2010년대", "start": "songstart001", "song": "song001", "title": "내가 제일 잘나가 - 2NE1"},
+  {"topic": "2010년대", "start": "songstart002", "song": "song002", "title": "Fantastic Baby - 빅뱅"},
+  {"topic": "2010년대", "start": "songstart003", "song": "song003", "title": "나혼자 - 씨쓰타"},
+  {"topic": "2010년대", "start": "songstart004", "song": "song004", "title": "Roly Poly - 티아라"},
+  {"topic": "2010년대", "start": "songstart005", "song": "song005", "title": "Offically Missing You - 긱스"},
+  {"topic": "2010년대", "start": "songstart006", "song": "song006", "title": "거북이 - 다비치"},
+  {"topic": "2010년대", "start": "songstart007", "song": "song007", "title": "TV를 껐네 - 리쌍"},
+  {"topic": "2010년대", "start": "songstart008", "song": "song008", "title": "그땐 그땐 그땐 - 슈프림팀"},
+  {"topic": "2010년대", "start": "songstart009", "song": "song009", "title": "너랑나 - 아이유"},
+```
 
 #### JSON Parsing & Filtering
-```
+```java
         try {
             InputStream is = getAssets().open("jsons/introsong.json");
             int fileSize = is.available();
@@ -88,3 +100,5 @@ Json 파싱을 통한 데이터 필터링 및 리소스 호출을 담당.
             e.printStackTrace();
         }
 ```
+
+

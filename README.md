@@ -19,7 +19,7 @@
 ##### 회의 : Discord(화면공유 및 피드백) , GitHub(파일공유)
 
 ### 4. 게임 소개
-###### [1. 폭탄게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/bombgame.java)
+###### [1. 폭탄게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/master/app/src/main/java/com/example/teamprojectapplication/bombgame.java)
 ###### [2. 라이어게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/liargame.java)
 ###### [3. 인물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/personimagegame.java)
 ###### [4. 사물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/objectgame.java)

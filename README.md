@@ -19,25 +19,72 @@
 ##### 회의 : Discord(화면공유 및 피드백) , GitHub(파일공유)
 
 ### 4. 게임 소개
-###### 1. 폭탄게임
-###### 2. 라이어게임
-###### 3. 인물 퀴즈
-###### 4. 사물 퀴즈
-###### 5. 초성 게임
-###### 6. 이어말하기
-###### 7. 병돌리기
-###### 8. 터치 게임
-###### 9. 벌칙 룰렛
-###### 10. 베스킨라빈스31+
-###### 11. 왕게임
-###### 12. 스탑 워치
-###### 13. 이모지 게임
-###### 14. 전주 듣고 노래 맞추기
-###### 15. 핑거초이스
+###### [1. 폭탄게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/bombgame.java)
+###### [2. 라이어게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/liargame.java)
+###### [3. 인물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/personimagegame.java)
+###### [4. 사물 퀴즈](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/objectgame.java)
+###### [5. 초성 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/chosunggame.java)
+###### [6. 이어말하기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/relayspeakingfour.java)
+###### [7. 병돌리기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/bottlespiner.java)
+###### [8. 터치 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/touchgame.java)
+###### [9. 벌칙 룰렛](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/Roulette.java)
+###### [10. 베스킨라빈스31+](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/thrityone.java)
+###### [11. 왕게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/KingGameReal.java)
+###### [12. 스탑 워치](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/stopwatch.java)
+###### [13. 이모지 게임](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/emojigame.java)
+###### [14. 전주 듣고 노래 맞추기](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/introsong.java)
+###### [15. 핑거초이스](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/java/com/example/teamprojectapplication/fingerchoice.java)
 ###### 16. 얼굴 인식 게임
 
 
 ### 5. 데이터 관리
 Json 파싱을 통한 데이터 필터링 및 리소스 호출을 담당.
+###### [Introsong.Json 예시](https://github.com/swallow8801/TeamProject_CapstoneDesign/blob/main/app/src/main/assets/jsons/introsong.json)
 
-### 6. Youtube Link
+#### JSON Parsing & Filtering
+```
+        try {
+            InputStream is = getAssets().open("jsons/introsong.json");
+            int fileSize = is.available();
+
+            byte[] buffer = new byte[fileSize];
+            is.read(buffer);
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+            JSONArray jsonArray = new JSONArray(json);
+
+
+            JSONArray filteredArray = new JSONArray();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+                if (Topic.equals(item.getString("topic"))) {
+                    filteredArray.put(item);
+                }
+            }
+
+            int length = filteredArray.length();
+
+            song_data = new Object[length][3];
+
+            for (int i = 0; i < length; i++) {
+                JSONObject jsonObject = filteredArray.getJSONObject(i);
+                String Jsontopic = jsonObject.getString("topic");
+                if (Jsontopic.equals(Topic)) {
+                    String startName = jsonObject.getString("start");
+                    int startResourceId = getResources().getIdentifier(startName, "raw", getPackageName());
+                    String songName = jsonObject.getString("song");
+                    int songResourceId = getResources().getIdentifier(songName, "raw", getPackageName());
+
+                    song_data[i][0] = startResourceId;
+                    song_data[i][1] = songResourceId;
+                    song_data[i][2] = jsonObject.getString("title");
+                }
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+```
